@@ -2,12 +2,12 @@ from sklearn import tree
 import time
 
 def perguntar_peso_textura():
-    peso = input("How many grams are in the fruit? ")
-    textura = input("What is the texture of the shell? (1 for Smooth, 0 for Irregular)")
+    peso = input("Quantos gramas tem a fruta?")
+    textura = input("Qual é a textura da casca? (1 para Suave, 0 para Irregular)")
     return [int(peso), int(textura)]
 
 def continuar_interacao():
-    resposta = input("Do you want to interact again? (y/n): ")
+    resposta = input("Deseja continuar? (s/n): ")
     return resposta.lower() == 'y'
 
 def main():
@@ -20,7 +20,7 @@ def main():
     while True:
         nova_amostra = perguntar_peso_textura()
         resultado = clf.predict([nova_amostra])[0]
-        print("The fruit is an Apple." if resultado == 5 else "The fruit is an Orange.")
+        print("A fruta é uma maçã." if resultado == 5 else "A fruta é uma laranja.")
         
         if not continuar_interacao():
             break
